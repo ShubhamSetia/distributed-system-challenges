@@ -1,4 +1,3 @@
-# clojure
 /target
 /classes
 /checkouts
@@ -12,12 +11,3 @@ pom.xml.asc
 /.prepl-port
 .hgignore
 .hg/
-
-# IDE and editor files
-.idea/
-.vscode/
-
-# Logs
-store/
-*.log
-
