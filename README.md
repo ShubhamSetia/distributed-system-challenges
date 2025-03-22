@@ -27,26 +27,38 @@ The first challenge is to implement a simple echo server that responds to each r
 
 This challenge demonstrates the basic structure of a Maelstrom node and how to handle messages in a distributed system.
 
+Implementation is available in the [challenges/01-echo-server](challenges/01-echo-server) directory.
+
 #### Building and Running the Echo Server
 
-To build and run the echo server challenge:
+To build the echo server:
 
-1. Navigate to the echo server directory:
-   ```
-   cd echo/echo_server
-   ```
+```bash
+# Navigate to the echo server directory
+cd challenges/01-echo-server
 
-2. Build the project using Leiningen:
-   ```
-   lein uberjar
-   ```
+# Clean the project
+lein clean
 
-3. Return to the root directory:
-   ```
-   cd ../..
-   ```
+# Run tests
+lein test
 
-4. Run the Maelstrom test for the echo workload:
-   ```
-   ./maelstrom-bin/maelstrom test -w echo --bin ./echo/run-echo.sh --node-count 1 --time-limit 10
-   ```
+# Build the uberjar
+lein uberjar
+```
+
+To run the echo server with Maelstrom:
+
+```bash
+# From the repository root
+./maelstrom-bin/maelstrom test -w echo --bin ./challenges/01-echo-server/run-echo.sh --node-count 1 --time-limit 5
+```
+
+The echo server handles two types of messages:
+- `init` messages: Sets up the node ID and acknowledges initialization
+- `echo` messages: Echoes back the received message content
+
+
+
+
+
